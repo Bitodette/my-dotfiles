@@ -1,0 +1,146 @@
+/* MATUGEN */
+@define-color bg-color #090f0f;
+@define-color border-color #80d5d3;
+@define-color text-color #dde4e3;
+@define-color selected-bg #252b2b;
+@define-color hover-bg #2f3636;
+@define-color slider-bg #2f3636;
+@define-color slider-fg #80d5d3;
+@define-color accent-color #80d5d3;
+
+* {
+    font-family: "JetBrainsMono Nerd Font";
+}
+
+scrollbar, scrollbar * { all: unset; }
+
+.control-center {
+    background: @bg-color;
+    border: 4px solid @border-color;
+    border-radius: 20px;
+    padding: 15px;
+}
+
+.widget-buttons-grid {
+    background: @selected-bg;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 15px;
+}
+
+.widget-buttons-grid > flowbox > child > button {
+    background: @hover-bg;
+    border-radius: 12px;
+    margin: 5px;
+    padding: 15px;
+    color: @text-color;
+    font-size: 20px;
+    border: none;
+    transition: all 0.2s ease;
+}
+
+.widget-buttons-grid > flowbox > child > button:hover {
+    background: @slider-fg;
+    color: @bg-color;
+}
+
+/* VOLUME & BRIGHTNESS */
+.widget-volume, .widget-backlight {
+    background: @selected-bg;
+    padding: 5px 10px;
+    margin-bottom: 5px;
+    border-radius: 15px;
+    font-size: 16px;
+}
+
+.widget-volume > scale, .widget-backlight > scale {
+    min-height: 5px;
+}
+
+.widget-volume > scale slider, .widget-backlight > scale slider {
+    background: @slider-fg;
+    border-radius: 100%;
+    min-height: 10px;
+    min-width: 10px;
+    box-shadow: none;
+}
+
+.widget-volume > scale trough, .widget-backlight > scale trough {
+    background: @slider-bg;
+    border-radius: 10px;
+    min-height: 5px;
+}
+
+.widget-volume > scale highlight, .widget-backlight > scale highlight {
+    background: @slider-fg;
+    border-radius: 10px;
+}
+
+/* MPRIS */
+.widget-mpris {
+    background: @selected-bg;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 15px;
+}
+
+.widget-mpris-title {
+    font-weight: bold;
+    font-size: 14px;
+    color: @slider-fg;
+}
+
+.widget-mpris-subtitle {
+    font-size: 12px;
+    color: @text-color;
+}
+
+.widget-mpris button {
+    background: transparent;
+    border-radius: 10px;
+    color: @text-color;
+    padding: 5px;
+}
+
+.widget-mpris button:hover {
+    background: @hover-bg;
+    color: @slider-fg;
+}
+
+.notification-default {
+    background: @selected-bg;
+    border-radius: 15px;
+    margin: 8px 0;
+    padding: 15px;
+    border: 1px solid rgba(137, 180, 250, 0.1);
+}
+
+.notification-row:focus, .notification-row:selected {
+    background: transparent;
+    background-image: none;
+    outline: none;
+}
+
+.notification-row:focus .notification-default,
+.notification-row:selected .notification-default {
+    background: @selected-bg;
+    background-image: none;
+}
+
+.widget-title {
+    color: @border-color;
+    margin: 10px 0 5px 0;
+}
+.widget-title > button {
+    background: @selected-bg;
+    color: @text-color;
+    border-radius: 8px;
+    padding: 5px 10px;
+    border: none;
+    transition: all 0.2s ease;
+}
+.widget-title > button:hover {
+    background: @slider-fg;
+    color: @bg-color;
+}
+.notification-row .summary, .notification-row .body { background: transparent; }

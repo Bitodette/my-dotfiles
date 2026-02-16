@@ -1,0 +1,89 @@
+/* MATUGEN */
+@define-color bg-color #1a2120;
+@define-color text-color #dde4e3;
+@define-color accent-color #80d5d3;
+@define-color on-accent-color #003736;
+@define-color alert-color #ffb4ab;
+
+* {
+    border: none;
+    border-radius: 0;
+    font-family: "JetBrainsMono Nerd Font";
+    font-weight: bold;
+    font-size: 12px;
+    min-height: 0;
+}
+
+window#waybar {
+    background: transparent;
+    color: @text-color;
+}
+
+/* MODULES */
+#workspaces,
+#cpu, 
+#memory, 
+#disk,
+#temperature,
+#custom-docker,
+#network, 
+#pulseaudio, 
+#battery, 
+#clock,
+#custom-notification {
+    background-color: @bg-color;
+    color: @text-color;
+    border-radius: 15px;
+    padding: 4px 12px;
+    margin: 5px 3px;
+}
+
+/* WORKSPACES */
+#workspaces button {
+    padding: 0 8px;
+    color: @text-color;
+    background: transparent;
+}
+
+#workspaces button.active {
+    background: @accent-color;
+    color: @on-accent-color;
+    border-radius: 15px;
+}
+
+
+#network, 
+#pulseaudio, 
+#battery, 
+#cpu, 
+#memory, 
+#disk, 
+#temperature, 
+#clock {
+    color: @text-color;
+}
+
+#network {
+    min-width: 150px;
+}
+
+#custom-notification {
+    color: @accent-color;
+}
+
+#battery.critical {
+    color: @alert-color;
+    background-color: @text-color;
+}
+
+#temperature.critical {
+    color: @alert-color;
+}
+
+#custom-docker {
+    color: @accent-color;
+}
+
+#custom-docker.offline {
+    color: #585b70;
+}

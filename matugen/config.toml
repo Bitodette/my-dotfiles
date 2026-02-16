@@ -1,0 +1,23 @@
+
+[config]
+reload_on_change = true
+
+# SWAYNC 
+[templates.swaync]
+input_path = "~/.config/swaync/style.css.template"
+output_path = "~/.config/swaync/style.css"
+
+# WAYBAR
+[templates.waybar]
+input_path = "~/.config/waybar/style.css.template"
+output_path = "~/.config/waybar/style.css"
+
+# HYPRLAND BORDER
+[templates.hyprland]
+input_path = "~/.config/hypr/colors.conf.template"
+output_path = "~/.config/hypr/colors.conf"
+
+# ROFI
+[templates.rofi]
+input_path = "~/.config/rofi/colors.rasi.template"
+output_path = "~/.config/rofi/colors.rasi"

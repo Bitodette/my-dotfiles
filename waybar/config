@@ -1,0 +1,122 @@
+{
+    "layer": "top",
+    "margin-left": 10,
+    "margin-right": 10,
+    "margin-top":5,
+    "position": "top",
+    "mod": "dock",
+    "exclusive": true,
+    "passthrough": false,
+    "gtk-layer-shell": true,
+    "height": 38, 
+    "modules-left": ["cpu", "memory", "disk", "temperature", "custom/docker"],
+    "modules-center": ["hyprland/workspaces"],
+    "modules-right": ["network", "pulseaudio", "battery", "clock", "custom/notification"],
+
+    "hyprland/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": true,
+        "on-click": "activate",
+        "format": "{name}",
+        "persistent-workspaces": {
+            "1": [],
+            "2": [],
+            "3": []
+        }
+    },
+    
+    "cpu": {
+        "interval": 3,
+        "format": " {usage}%"
+    },
+
+    // "custom/gpu": {
+    //     "exec": "timeout 0.5 intel_gpu_top -l -s 1 | awk 'NR>2 {printf \"%.0f\\n\", $9; exit}'",
+    //     "format": "<span font_size='13000' rise='-2000'>󰾲</span> {}%",
+    //     "interval": 5,
+    //     "tooltip": false
+    // },
+    
+    "memory": {
+        "interval": 3,
+        "format": " {percentage}%"
+    },
+
+    "disk": {
+        "interval": 500,
+        "format": "󰋊 {percentage_used}%",
+        "path": "/"
+    },
+
+    "temperature": {
+        "critical-threshold": 55,
+        "format": " {temperatureC}°C",
+	"tooltip": false,
+	"interval": 6,
+    },
+    "custom/docker": {
+	"exec": "~/.config/waybar/scripts/docker.py",
+	"return-type": "json",
+        "format": "{}",
+	"interval": 200,
+	"on-click": "kitty --class lazydocker -e lazydocker",
+	"tooltip": true
+    },
+
+    "network": {
+        "interval": 9,
+        "format-wifi": "󰇚 {bandwidthDownBytes} 󰕒 {bandwidthUpBytes}",
+        "format-ethernet": "󰇚 {bandwidthDownBytes} 󰕒 {bandwidthUpBytes}",
+        "format-disconnected": "󰤭  Offline",
+        "tooltip-format": "{essid} - {ifname}"
+    },
+
+    "pulseaudio": {
+        "format": "{icon} {volume}%",
+        "format-muted": " ",
+        "format-icons": {
+            "default": ["", " ", " "]
+        },
+        "on-click": "pamixer -t"
+    },
+
+    "battery": {
+        "interval": 3,
+        "states": {
+            "good": 95,
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{icon} {capacity}% ({power}W)",
+        "format-charging": " {capacity}%",
+        "format-plugged": " {capacity}%",
+        "format-icons": [" ", " ", " ", " ", " "]
+    },
+
+    "clock": {
+        "format": "{:%H:%M}",
+        "tooltip-format": "{:%Y-%m-%d}"
+    },
+
+    "custom/notification": {
+        "tooltip": false,
+        "format": "{icon}",
+        "format-icons": {
+            "notification": " 󱅫 ",
+            "none": " 󰂚 ",
+            "dnd-notification": " 󱅫 ",
+            "dnd-none": " 󰂛 ",
+            "inhibited-notification": " 󱅫 ",
+            "inhibited-none": " 󰂚 ",
+            "dnd-inhibited-notification": " 󱅫 ",
+            "dnd-inhibited-none": " 󰂛 "
+        },
+        "return-type": "json",
+        "exec-if": "which swaync-client",
+        "exec": "swaync-client -swb",
+        "on-click": 
+"swaync-client -t -sw",
+        "on-click-right": "swaync-client -d -sw",
+        "escape": true
+    }
+}
