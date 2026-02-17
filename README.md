@@ -15,7 +15,7 @@
 
 ---
 
-## 🖼️ The "Look at Me" Section
+## 🖼️ Look at Me
 
 ![Screenshot](screenshots/preview.png)
 
